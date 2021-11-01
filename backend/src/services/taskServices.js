@@ -15,7 +15,7 @@ const errors = require('../errors/tasksErrors');
 const getAllTasksService = async () => {
   const tasks = await getAllTasks();
 
-  if (!tasks) return { error: errors.internalError };
+  if (!tasks) return { error: true };
 
   return { tasks };
 };
@@ -29,7 +29,7 @@ const createNewTaskService = async (info, status) => {
 
   const task = await createNewTask(info, status, createdAt);
 
-  if (!task) return { error: errors.internalError };
+  if (!task) return { error: true };
 
   return { task };
 };

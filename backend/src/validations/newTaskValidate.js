@@ -1,8 +1,6 @@
 const errors = require('../errors/tasksErrors');
 
-module.exports = (info, status) => {
-  if (!status || !info) return { error: errors.invalidParams };
-
+module.exports = (info = '', status = '') => {
   if (
     status.trim() === ''
     || info.trim() === ''
