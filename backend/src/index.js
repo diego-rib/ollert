@@ -1,9 +1,13 @@
 const express = require('express');
 
+const taskRoutes = require('./routes/taskRoutes');
+
 const app = express();
 
 app.get('/ping', (_req, res) => res.send('pong'));
 
-const PORTA = 3000;
+app.use('/tasks', taskRoutes);
 
-app.listen(PORTA, () => console.log(`Rodando na porta: ${PORTA}`));
+const PORT = 4000;
+
+app.listen(PORT, () => console.log(`Rodando na porta: ${PORT}`));
