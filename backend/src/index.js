@@ -4,6 +4,9 @@ const taskRoutes = require('./routes/taskRoutes');
 
 const app = express();
 
+app.use(express.json());
+
+// Testando app
 app.get('/ping', (_req, res) => res.send('pong'));
 
 app.use('/tasks', taskRoutes);
