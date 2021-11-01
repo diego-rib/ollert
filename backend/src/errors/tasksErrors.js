@@ -4,7 +4,7 @@ module.exports = {
     message: 'Aconteceu um erro inesperado, tente novamente mais tarde',
   },
   invalidParams: {
-    code: 401,
+    code: 400,
     message: 'Os campos \'info\' e \'status\' devem ser preenchidos',
   },
 };
