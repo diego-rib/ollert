@@ -35,7 +35,7 @@ const createNewTaskService = async (info, status) => {
 };
 
 const updateTaskService = async (id, info, status) => {
-  if (!ObjectId(id)) return { error: errors.invalidId };
+  if (!ObjectId.isValid(id)) return { error: errors.invalidId };
 
   const { error } = newTaskValidate(info, status);
 
@@ -49,7 +49,7 @@ const updateTaskService = async (id, info, status) => {
 };
 
 const getTaskByIdService = async (id) => {
-  if (!ObjectId(id)) return { error: errors.invalidId };
+  if (!ObjectId.isValid(id)) return { error: errors.invalidId };
 
   const task = await getTaskById(ObjectId(id));
 
@@ -59,7 +59,7 @@ const getTaskByIdService = async (id) => {
 };
 
 const removeTaskService = async (id) => {
-  if (!ObjectId(id)) return { error: errors.invalidId };
+  if (!ObjectId(id).isValid) return { error: errors.invalidId };
 
   const task = await removeTask(ObjectId(id));
 
