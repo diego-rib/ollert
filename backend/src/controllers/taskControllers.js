@@ -22,7 +22,7 @@ const createNewTaskController = async (req, res, next) => {
 
   if (error) return next(error);
 
-  res.status(201).json(task);
+  res.status(201).json({ task });
 };
 
 const updateTaskController = async (req, res, next) => {
@@ -33,7 +33,7 @@ const updateTaskController = async (req, res, next) => {
 
   if (error) return next(error);
 
-  res.status(200).json(task);
+  res.status(200).json({ task });
 };
 
 const getTaskByIdController = async (req, res, next) => {
@@ -43,7 +43,7 @@ const getTaskByIdController = async (req, res, next) => {
 
   if (error) return next(error);
 
-  res.status(200).json(task);
+  res.status(200).json({ task });
 };
 
 const removeTaskController = async (req, res, next) => {
