@@ -22,7 +22,22 @@ const createNewTask = async (info, status, createdAt) => {
   return { _id: inserted.insertedId, info, status, createdAt };
 };
 
+const updateTask = async (id, info, status) => {
+  const db = await connection();
+
+  const updated = await db
+    .collection('tasks')
+    .findOneAndUpdate(
+      { _id: id },
+      { $set: { info, status } },
+      { returnNewDocument: true },
+    );
+
+  return { ...updated.value, info, status };
+};
+
 module.exports = {
   getAllTasks,
   createNewTask,
+  updateTask,
 };

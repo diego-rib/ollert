@@ -1,9 +1,12 @@
 // Services
+const { ObjectId } = require('mongodb');
+
 const {
   getAllTasks,
   createNewTask,
+  updateTask,
 } = require('../models/taskModels');
-const newTaksValidate = require('../validations/newTaskValidate');
+const newTaskValidate = require('../validations/newTaskValidate');
 const errors = require('../errors/tasksErrors');
 
 const getAllTasksService = async () => {
@@ -17,7 +20,7 @@ const getAllTasksService = async () => {
 const createNewTaskService = async (info, status) => {
   const createdAt = Date.now();
 
-  const { error } = newTaksValidate(info, status);
+  const { error } = newTaskValidate(info, status);
 
   if (error) return { error };
 
@@ -28,7 +31,22 @@ const createNewTaskService = async (info, status) => {
   return { task };
 };
 
+const updateTaskService = async (id, info, status) => {
+  if (!ObjectId(id)) return { error: errors.invalidId };
+
+  const { error } = newTaskValidate(info, status);
+
+  if (error) return { error };
+
+  const task = await updateTask(ObjectId(id), info, status);
+
+  if (!task) return { error: errors.taskNotFound };
+
+  return { task };
+};
+
 module.exports = {
   getAllTasksService,
   createNewTaskService,
+  updateTaskService,
 };

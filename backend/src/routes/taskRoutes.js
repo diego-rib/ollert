@@ -10,7 +10,7 @@ const {
 
 router.get('/', getAllTasksController);
 router.post('/', createNewTaskController);
-router.patch('/', updateTaskController);
+router.put('/:id', updateTaskController);
 
 router.use(errorHandler);
 
