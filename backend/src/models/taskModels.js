@@ -46,9 +46,20 @@ const getTaskById = async (id) => {
   return task;
 };
 
+const removeTask = async (id) => {
+  const db = await connection();
+
+  const removed = await db
+    .collection('tasks')
+    .findOneAndDelete({ _id: id });
+  
+  return removed;
+};
+
 module.exports = {
   getAllTasks,
   createNewTask,
   updateTask,
   getTaskById,
+  removeTask,
 };

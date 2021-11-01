@@ -6,6 +6,7 @@ const {
   createNewTask,
   updateTask,
   getTaskById,
+  removeTask,
 } = require('../models/taskModels');
 
 const newTaskValidate = require('../validations/newTaskValidate');
@@ -57,9 +58,20 @@ const getTaskByIdService = async (id) => {
   return { task };
 };
 
+const removeTaskService = async (id) => {
+  if (!ObjectId(id)) return { error: errors.invalidId };
+
+  const task = await removeTask(ObjectId(id));
+
+  if (!task) return { error: errors.taskNotFound };
+
+  return { error: null };
+};
+
 module.exports = {
   getAllTasksService,
   createNewTaskService,
   updateTaskService,
   getTaskByIdService,
+  removeTaskService,
 };

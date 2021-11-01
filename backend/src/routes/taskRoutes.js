@@ -7,12 +7,14 @@ const {
   createNewTaskController,
   updateTaskController,
   getTaskByIdController,
+  removeTaskController,
 } = require('../controllers/taskControllers');
 
 router.get('/', getAllTasksController);
 router.get('/:id', getTaskByIdController);
 router.post('/', createNewTaskController);
 router.put('/:id', updateTaskController);
+router.delete('/:id', removeTaskController);
 
 router.use(errorHandler);
 
