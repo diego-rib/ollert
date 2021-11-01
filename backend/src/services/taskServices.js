@@ -5,7 +5,9 @@ const {
   getAllTasks,
   createNewTask,
   updateTask,
+  getTaskById,
 } = require('../models/taskModels');
+
 const newTaskValidate = require('../validations/newTaskValidate');
 const errors = require('../errors/tasksErrors');
 
@@ -45,8 +47,19 @@ const updateTaskService = async (id, info, status) => {
   return { task };
 };
 
+const getTaskByIdService = async (id) => {
+  if (!ObjectId(id)) return { error: errors.invalidId };
+
+  const task = await getTaskById(ObjectId(id));
+
+  if (!task) return { error: errors.taskNotFound };
+
+  return { task };
+};
+
 module.exports = {
   getAllTasksService,
   createNewTaskService,
   updateTaskService,
+  getTaskByIdService,
 };

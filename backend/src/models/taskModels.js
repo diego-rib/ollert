@@ -36,8 +36,19 @@ const updateTask = async (id, info, status) => {
   return { ...updated.value, info, status };
 };
 
+const getTaskById = async (id) => {
+  const db = await connection();
+
+  const task = await db
+    .collection('tasks')
+    .findOne({ _id: id });
+  
+  return task;
+};
+
 module.exports = {
   getAllTasks,
   createNewTask,
   updateTask,
+  getTaskById,
 };
