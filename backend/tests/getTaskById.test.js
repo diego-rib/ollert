@@ -71,7 +71,7 @@ describe('Testa o endpoint GET `/tasks/:id`', () => {
     });
   });
 
-  describe('Id inserido é inválido', () => {
+  describe('Id inserido é válido porém não pode ser encontrado', () => {
     let response;
 
     const inexistentId = '618015c92425c12defa81661';
