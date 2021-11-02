@@ -4,6 +4,7 @@ import './styles.css';
 import { TasksContext } from '../../Context/TasksProvider';
 
 import Cards from '../Cards';
+import NewTaskForm from '../NewTaskForm';
 
 export default function Board() {
   const { tasks } = useContext(TasksContext);
@@ -15,6 +16,7 @@ export default function Board() {
   return (
     <div className="boardWrapper">
       <h1 className="boardTitle">Tarefas:</h1>
+      <NewTaskForm />
       <main className="boardColumnsWrapper">
         <ul className="boardColumn">
           <h4 className="boardColumnTitle">Pendentes:</h4>
