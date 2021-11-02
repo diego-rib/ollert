@@ -5,20 +5,29 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev:test": "mocha ./tests/*$NAME*.{test,spec}.js --exit",
+    "dev:test:coverage": "nyc --all npm run dev:test",
+    "dev": "nodemon src/server/server.js",
+    "start": "node src/server/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "eslint-config-trybe-backend": "^1.0.4",
     "express": "^4.17.1",
     "mongodb": "^4.1.3"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cz-conventional-changelog": "3.3.0",
-    "nodemon": "^2.0.14"
+    "mocha": "^9.1.3",
+    "mongodb-memory-server": "^6.9.6",
+    "nodemon": "^2.0.14",
+    "nyc": "^15.1.0",
+    "sinon": "^11.1.2"
   },
   "config": {
     "commitizen": {

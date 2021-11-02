@@ -15,7 +15,7 @@ const errors = require('../errors/tasksErrors');
 const getAllTasksService = async () => {
   const tasks = await getAllTasks();
 
-  if (!tasks) return { error: errors.internalError };
+  if (!tasks) return { error: true };
 
   return { tasks };
 };
@@ -29,27 +29,31 @@ const createNewTaskService = async (info, status) => {
 
   const task = await createNewTask(info, status, createdAt);
 
-  if (!task) return { error: errors.internalError };
+  if (!task) return { error: true };
 
   return { task };
 };
 
 const updateTaskService = async (id, info, status) => {
-  if (!ObjectId(id)) return { error: errors.invalidId };
+  if (!ObjectId.isValid(id)) return { error: errors.invalidId };
 
   const { error } = newTaskValidate(info, status);
 
   if (error) return { error };
 
+  const taskExist = await getTaskById(ObjectId(id));
+
+  if (!taskExist) return { error: errors.taskNotFound };
+
   const task = await updateTask(ObjectId(id), info, status);
 
-  if (!task) return { error: errors.taskNotFound };
+  if (!task) return { error: true };
 
   return { task };
 };
 
 const getTaskByIdService = async (id) => {
-  if (!ObjectId(id)) return { error: errors.invalidId };
+  if (!ObjectId.isValid(id)) return { error: errors.invalidId };
 
   const task = await getTaskById(ObjectId(id));
 
@@ -59,7 +63,11 @@ const getTaskByIdService = async (id) => {
 };
 
 const removeTaskService = async (id) => {
-  if (!ObjectId(id)) return { error: errors.invalidId };
+  if (!ObjectId.isValid(id)) return { error: errors.invalidId };
+
+  const taskExist = await getTaskById(ObjectId(id));
+
+  if (!taskExist) return { error: errors.taskNotFound };
 
   const task = await removeTask(ObjectId(id));
 

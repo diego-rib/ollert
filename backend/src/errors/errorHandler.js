@@ -5,5 +5,9 @@ module.exports = (error, _req, res, _next) => {
     return res.status(code).json({ message });
   }
 
-  res.status(503).json({ message: 'Servidor se encontra com problemas' });
+  res
+    .status(500)
+    .json({
+      message: 'Aconteceu um erro inesperado, tente novamente mais tarde',
+    });
 };
