@@ -9,20 +9,18 @@ import Header from './Components/Header';
 
 // Componentes
 import Board from './Components/Board';
-import CardEditForm from './Components/CardEditForm';
+import EditCard from './Components/EditCard';
 
-function App() {
+export default function App() {
   return (
     <TasksProvider>
       <BrowserRouter>
       <Header />
         <Switch>
           <Route exact path="/" component={Board} />
-          <Route path="/:id" component={CardEditForm} />
+          <Route path="/:id" component={EditCard} />
         </Switch>
       </BrowserRouter>
     </TasksProvider>
   );
 }
-
-export default App;
