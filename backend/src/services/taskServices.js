@@ -65,6 +65,10 @@ const getTaskByIdService = async (id) => {
 const removeTaskService = async (id) => {
   if (!ObjectId.isValid(id)) return { error: errors.invalidId };
 
+  const taskExist = await getTaskById(ObjectId(id));
+
+  if (!taskExist) return { error: errors.taskNotFound };
+
   const task = await removeTask(ObjectId(id));
 
   if (!task) return { error: errors.taskNotFound };
