@@ -63,7 +63,7 @@ const getTaskByIdService = async (id) => {
 };
 
 const removeTaskService = async (id) => {
-  if (!ObjectId(id).isValid) return { error: errors.invalidId };
+  if (!ObjectId.isValid(id)) return { error: errors.invalidId };
 
   const task = await removeTask(ObjectId(id));
 
