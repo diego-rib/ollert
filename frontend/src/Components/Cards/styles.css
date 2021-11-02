@@ -1,0 +1,17 @@
+.cardWrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  color: inherit;
+  margin: 5px 0 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  width: 60%;
+}
+
+.cardWrapper:hover {
+  filter: brightness(0.97);
+}
+
+.cardInfo {
+  
+}
