@@ -10,7 +10,7 @@ function TasksProvider ({ children }) {
 
   useEffect(() => {
     async function fetchData () {
-      const { data } = await api.get('/tasks');
+      const { data } = await api.get('tasks');
       setShouldUpdate(false);
       setTasks(data.tasks);
     }

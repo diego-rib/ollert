@@ -5,7 +5,7 @@ import { TasksContext } from '../../Context/TasksProvider';
 
 import Cards from '../Cards';
 
-function Board() {
+export default function Board() {
   const { tasks } = useContext(TasksContext);
 
   const pending = tasks.filter(({ status }) => status === 'pendente');
@@ -17,26 +17,18 @@ function Board() {
       <h1 className="boardTitle">Tarefas:</h1>
       <main className="boardColumnsWrapper">
         <ul className="boardColumn">
-          <h3 className="boardColumnTitle">Pendentes:</h3>
-          {
-            pending.map((task) => <Cards key={task._id} task={ task } />)
-          }
+          <h4 className="boardColumnTitle">Pendentes:</h4>
+          <Cards tasks={ pending } />
         </ul>
         <ul className="boardColumn">
-        <h3 className="boardColumnTitle">Em progresso:</h3>
-          {
-            inProgress.map((task) => <Cards key={task._id} task={ task } />)
-          }
+          <h4 className="boardColumnTitle">Em progresso:</h4>
+          <Cards tasks={ inProgress } />
         </ul>
         <ul className="boardColumn">
-        <h3 className="boardColumnTitle">Concluídas:</h3>
-          {
-            done.map((task) => <Cards key={task._id} task={ task } />)
-          }
+          <h4 className="boardColumnTitle">Concluídas:</h4>
+          <Cards tasks={ done } />
         </ul>
       </main>
     </div>
   );
 }
-
-export default Board;
