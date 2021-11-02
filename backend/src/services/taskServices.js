@@ -41,9 +41,13 @@ const updateTaskService = async (id, info, status) => {
 
   if (error) return { error };
 
+  const taskExist = await getTaskById(ObjectId(id));
+
+  if (!taskExist) return { error: errors.taskNotFound };
+
   const task = await updateTask(ObjectId(id), info, status);
 
-  if (!task) return { error: errors.taskNotFound };
+  if (!task) return { error: true };
 
   return { task };
 };
