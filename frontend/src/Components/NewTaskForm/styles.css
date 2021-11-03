@@ -1,11 +1,13 @@
 .newTaskForm {
   align-items: center;
-  background: rgba(91, 185, 209, 0.6);
+  background-color: #d7f3ff;
   border: none;
-  border-radius: 15px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 7px 1px #555;
+  color: #333;
   display: flex;
   flex-direction: column;
-  margin: 10px auto 50px;
+  margin: 30px auto 50px;
   padding: 20px 0 40px;
   position: relative;
   width: 60%;
@@ -47,17 +49,18 @@
 }
 
 .newTaskButton {
-  background: rgb(39, 218, 250);
+  background: #005393;
   border: none;
   border-radius: 10px;
   box-shadow: 1px 2px 1px #333;
+  color: #f2f2f2;
   cursor: pointer;
   font-size: 18px;
   padding: 10px 20px;
 }
 
 .newTaskErrorMessage {
-  background-color: rgba(255, 0, 0, 0.6);
+  background-color: rgba(255, 0, 0, 0.8);
   border: none;
   border-radius: 5px;
   color: white;
