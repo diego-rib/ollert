@@ -6,11 +6,11 @@ import './styles.css';
 import TaskForm from '../helpers/TaskForm';
 
 export default function NewTaskForm() {
-  async function sendTask (info, status) {
+  async function sendTask(info, status) {
     await api.post('/tasks', { info, status });
   }
 
   return (
-    <TaskForm callback={sendTask} buttonMessage="Adicionar tarefa" />
+    <TaskForm callback={ sendTask } buttonMessage="Adicionar tarefa" />
   );
 }

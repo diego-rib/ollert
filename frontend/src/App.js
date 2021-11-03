@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './styles.css';
@@ -15,10 +16,10 @@ export default function App() {
   return (
     <TasksProvider>
       <BrowserRouter>
-      <Header />
+        <Header />
         <Switch>
-          <Route exact path="/" component={Board} />
-          <Route path="/:id" component={EditCard} />
+          <Route exact path="/" component={ Board } />
+          <Route path="/:id" component={ EditCard } />
         </Switch>
       </BrowserRouter>
     </TasksProvider>

@@ -15,7 +15,6 @@ export default function Board() {
 
   return (
     <div className="boardWrapper">
-      <h1 className="boardTitle">Tarefas:</h1>
       <NewTaskForm />
       <main className="boardColumnsWrapper">
         <ul className="boardColumn">
