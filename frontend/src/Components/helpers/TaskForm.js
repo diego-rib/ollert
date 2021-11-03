@@ -1,5 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+import './styles.css';
 
 import { TasksContext } from '../../Context/TasksProvider';
 
@@ -7,15 +9,19 @@ export default function TaskForm({
   taskInfo = '',
   taskStatus = '',
   callback,
-  buttonMessage,
+  edit,
+  push,
 }) {
-  const { setShouldUpdate } = useContext(TasksContext);
+  const { setShouldUpdate, deleteTask } = useContext(TasksContext);
 
   const [info, setInfo] = useState(taskInfo);
   const [status, setStatus] = useState(taskStatus);
+  useEffect(() => {
+    setInfo(taskInfo);
+    setStatus(taskStatus);
+  }, [taskInfo, taskStatus]);
 
   const [error, setError] = useState('');
-
   function errorMessage(field) {
     const twoSeconds = 2000;
     setError(`O campo ${field} precisa ser preenchido`);
@@ -65,7 +71,32 @@ export default function TaskForm({
         </select>
       </label>
 
-      <button type="submit" className="newTaskButton">{buttonMessage}</button>
+      <div className="buttonsWrapper">
+        {
+          edit && (
+            <button type="button" className="goBackButton" onClick={ () => push('/') }>
+              Voltar
+            </button>
+          )
+        }
+        <button type="submit" className="newTaskButton">
+          {edit ? 'Salvar alterações' : 'Adicionar tarefa'}
+        </button>
+        {
+          edit && (
+            <button
+              type="button"
+              onClick={ async () => {
+                await deleteTask(edit);
+                push('/');
+              } }
+              className="deleteButton"
+            >
+              Deletar
+            </button>
+          )
+        }
+      </div>
     </form>
   );
 }
@@ -74,10 +105,13 @@ TaskForm.propTypes = {
   taskInfo: PropTypes.string,
   taskStatus: PropTypes.string,
   callback: PropTypes.func.isRequired,
-  buttonMessage: PropTypes.string.isRequired,
+  edit: PropTypes.bool,
+  push: PropTypes.func,
 };
 
 TaskForm.defaultProps = {
   taskInfo: '',
   taskStatus: '',
+  edit: null,
+  push: () => {},
 };

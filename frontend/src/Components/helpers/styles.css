@@ -48,15 +48,33 @@
   width: 300px;
 }
 
-.newTaskButton {
-  background: #005393;
+.buttonsWrapper {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.goBackButton, .newTaskButton, .deleteButton {
   border: none;
   border-radius: 10px;
   box-shadow: 1px 2px 1px #333;
-  color: #f2f2f2;
   cursor: pointer;
   font-size: 18px;
   padding: 10px 20px;
+  color: #f2f2f2;
+}
+
+.goBackButton {
+  background-color: #005393;
+  margin-right: 20px;
+}
+
+.newTaskButton {
+  background: #009325;
+}
+
+.deleteButton {
+  background-color: #e0525a;
+  margin-left: 20px;
 }
 
 .newTaskErrorMessage {

@@ -1,8 +1,6 @@
 import React from 'react';
 import api from '../../services/api';
 
-import './styles.css';
-
 import TaskForm from '../helpers/TaskForm';
 
 export default function NewTaskForm() {
@@ -11,6 +9,6 @@ export default function NewTaskForm() {
   }
 
   return (
-    <TaskForm callback={ sendTask } buttonMessage="Adicionar tarefa" />
+    <TaskForm callback={ sendTask } edit={ false } />
   );
 }

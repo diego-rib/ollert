@@ -9,6 +9,11 @@ export default function TasksProvider({ children }) {
   const [tasks, setTasks] = useState([]);
   const [shouldUpdate, setShouldUpdate] = useState(true);
 
+  async function deleteTask(id) {
+    await api.delete(`/tasks/${id}`);
+    setShouldUpdate(true);
+  }
+
   useEffect(() => {
     async function fetchData() {
       const { data } = await api.get('tasks');
@@ -23,6 +28,7 @@ export default function TasksProvider({ children }) {
   const context = {
     tasks,
     setShouldUpdate,
+    deleteTask,
   };
 
   return (
