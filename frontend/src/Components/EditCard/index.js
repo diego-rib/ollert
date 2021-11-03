@@ -5,7 +5,7 @@ import './styles.css';
 
 import api from '../../services/api';
 
-import TaskForm from '../helpers/TaskForm';
+import TaskForm from '../TaskForm';
 
 export default function CardEditForm({ match, history }) {
   const { id } = match.params;

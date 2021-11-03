@@ -9,10 +9,36 @@
   width: 90%;
 }
 
-.boardTitle {
-  margin-bottom: 20px;
-  padding: 15px 0;
+.filterTitle {
+  color: #333;
+  font-size: 24px;
   text-align: center;
+}
+
+.filtersWrapper {
+  align-items: baseline;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 3px 2px #888;
+  display: flex;
+  margin: 10px auto 30px;
+  justify-content: space-around;
+  padding: 10px 20px;
+  width: 600px;
+}
+
+.filterSelect {
+  background-color: #e2e2e2;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 2px #888;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 7px;
+  padding: 7px;
+  width: 150px;
 }
 
 .boardColumnsWrapper {
@@ -41,4 +67,18 @@
   color: #333;
   font-size: 20px;
   margin: 15px;
+}
+
+.taskListColumn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.taskListColumn.columnAsc {
+  flex-direction: column-reverse;
+}
+
+.taskListColumn.columnDesc {
+  flex-direction: column;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import api from '../../services/api';
 
-import TaskForm from '../helpers/TaskForm';
+import TaskForm from '../TaskForm';
 
 export default function NewTaskForm() {
   async function sendTask(info, status) {
