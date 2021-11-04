@@ -1,5 +1,5 @@
 .boardWrapper {
-  background-color: #e2e2e2;
+  background-color: #FEEEEC;
   border: none;
   border-radius: 20px;
   box-shadow: -2px -2px 5px 2px #999;
@@ -29,7 +29,7 @@
 }
 
 .filterSelect {
-  background-color: #e2e2e2;
+  background-color: #EBF9FF;
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 1px 2px #888;
@@ -50,7 +50,7 @@
 
 .boardColumn {
   align-items: center;
-  background-color: #d7f3ff;
+  background-color: #D7F3FF;
   border: none;
   border-radius: 10px;
   box-shadow: 3px 3px 7px 1px #555;
