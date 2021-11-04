@@ -19,7 +19,7 @@ export default function TasksProvider({ children }) {
     await api.post('/tasks', { info, status });
   }
 
-  async function updateTaskData(info, status) {
+  async function updateTaskData(id, info, status) {
     await api.put(`/tasks/${id}`, { info, status });
   }
 
