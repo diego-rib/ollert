@@ -1,0 +1,10 @@
+.headerWrapper {
+  width: 100%;
+  background-color: #00245b;
+}
+
+.headerTitle {
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+}
