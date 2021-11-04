@@ -65,4 +65,3 @@ O usuário pode criar novas tarefas, editar e excluir as existentes.
 #### Aqui seguem as instruções para rodar os testes:
 
 - [Backend](https://github.com/diego-rib/ollert/blob/main/backend/README.md)
-- [Frontend](https://github.com/diego-rib/ollert/blob/main/frontend/README.md)
