@@ -14,18 +14,14 @@ export default function CardEditForm({ match, history }) {
 
   const taskId = useRef(id);
 
-  useEffect(() => {
-    async function fetchData() {
-      const { data } = await api.get(`/tasks/${taskId.current}`);
-      setTask(data.task);
-    }
-    fetchData();
-  }, []);
-
-  async function updateTaskData(info, status) {
-    await api.put(`/tasks/${id}`, { info, status });
-    history.push('/');
+  async function getTaskById() {
+    const { data } = await api.get(`/tasks/${taskId.current}`);
+    setTask(data.task);
   }
+
+  useEffect(() => {
+    getTaskById();
+  }, []);
 
   return (
     <div>
@@ -35,7 +31,6 @@ export default function CardEditForm({ match, history }) {
             <TaskForm
               taskInfo={ task.info }
               taskStatus={ task.status }
-              callback={ updateTaskData }
               edit={ id }
               push={ history.push }
             />

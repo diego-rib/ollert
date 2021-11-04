@@ -4,7 +4,7 @@ import './styles.css';
 import { TasksContext } from '../../Context/TasksProvider';
 
 import Cards from '../Cards';
-import NewTaskForm from '../NewTaskForm';
+import TaskForm from '../TaskForm';
 
 import orderTasks from '../../helpers/orderTasks';
 
@@ -24,7 +24,7 @@ export default function Board() {
 
   return (
     <div className="boardWrapper">
-      <NewTaskForm />
+      <TaskForm edit={ false } />
       <div className="filtersWrapper">
         <h1 className="filterTitle">Ordem:</h1>
         <label htmlFor="order">
@@ -33,7 +33,7 @@ export default function Board() {
             onChange={ (event) => setOrderBy(event.target.value) }
             className="filterSelect"
           >
-            <option value="alphabetical" selected>alfabética</option>
+            <option value="alphabetical">alfabética</option>
             <option value="createdAt">de criação</option>
           </select>
         </label>
@@ -43,7 +43,7 @@ export default function Board() {
             onChange={ (event) => setDescending(event.target.value) }
             className="filterSelect"
           >
-            <option value="asc" selected>crescente</option>
+            <option value="asc">crescente</option>
             <option value="desc">decrescente</option>
           </select>
         </label>
