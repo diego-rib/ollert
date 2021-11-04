@@ -24,7 +24,7 @@ export default function Board() {
 
   return (
     <div className="boardWrapper">
-      <TaskForm edit={ false } />
+      <TaskForm edit="" />
       <div className="filtersWrapper">
         <h1 className="filterTitle">Ordem:</h1>
         <label htmlFor="order">

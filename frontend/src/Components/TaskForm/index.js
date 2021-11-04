@@ -34,12 +34,16 @@ export default function TaskForm({ taskInfo = '', taskStatus = '', edit, push })
     if (!info.trim()) return errorMessage('`Tarefa`');
     if (!status.trim()) return errorMessage('`Status`');
 
-    const callback = edit ? updateTaskData : sendTaskData;
-    await callback(info, status);
+    if (!edit.trim()) {
+      await sendTaskData(info, status);
+    } else {
+      await updateTaskData(edit, info, status);
+    }
 
     setInfo('');
     setStatus('');
     setShouldUpdate(true);
+    push('/');
   }
 
   async function redirectToHome(fn, param) {
@@ -118,7 +122,7 @@ export default function TaskForm({ taskInfo = '', taskStatus = '', edit, push })
 TaskForm.propTypes = {
   taskInfo: PropTypes.string,
   taskStatus: PropTypes.string,
-  edit: PropTypes.bool,
+  edit: PropTypes.string,
   push: PropTypes.func,
 };
 
