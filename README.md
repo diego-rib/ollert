@@ -4,7 +4,7 @@ Boas vindas ao Ollert, seu aplicativo para lista de tarefas *"nunca"* antes vist
 
 ## Objetivos:
 
-O objetivo projeto é ajudar as pessoas colaboradoras da empresa Ebyrt com o controle e organização de suas tarefas individuais.
+O objetivo projeto é ajudar as pessoas colaboradoras da empresa Ebytr com o controle e organização de suas tarefas individuais.
 
 ## Pré-requisitos para rodar a aplicação:
 
