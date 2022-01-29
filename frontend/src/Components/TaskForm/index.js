@@ -34,14 +34,15 @@ export default function TaskForm({ taskInfo = '', taskStatus = '', edit, push })
     if (!info.trim()) return errorMessage('`Tarefa`');
     if (!status.trim()) return errorMessage('`Status`');
 
+    setInfo('');
+    setStatus('');
+
     if (!edit.trim()) {
       await sendTaskData(info, status);
     } else {
       await updateTaskData(edit, info, status);
     }
 
-    setInfo('');
-    setStatus('');
     setShouldUpdate(true);
     push('/');
   }
