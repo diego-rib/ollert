@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import customRender from './customRender';
+import customRender from './utils/customRender';
 
 import TaskForm from '../Components/TaskForm';
 import { getAllTasks, getRandomTask } from './mock/getRandomTask';
